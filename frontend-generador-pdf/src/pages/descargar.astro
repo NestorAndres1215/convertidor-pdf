@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="container text-center mt-5">
+    <div class="card p-5 shadow">
+      <i class="fas fa-file-pdf fa-4x text-danger mb-3"></i>
+      <h2 class="fw-bold azul-marino">Tu archivo está listo</h2>
+      <div id="contenido">
+        <p class="text-muted">Cargando...</p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script is:inline>
+  const params = new URLSearchParams(window.location.search);
+  const archivoNombre = params.get("archivo");
+  const contenido = document.getElementById("contenido");
+  console.log(archivoNombre);
+  if (archivoNombre) {
+    const enlace = `http://localhost:3000/descarga?archivo=${archivoNombre}`;
+    contenido.innerHTML = `
+      <p class="text-muted">Haz clic en el botón para descargar tu PDF</p>
+      <a href="${enlace}" class="btn bg-navy text-white mt-3" target="_blank" rel="noopener">
+        <i class="fas fa-download"></i> Descargar PDF
+      </a>
+    `;
+  } else {
+    contenido.innerHTML = `<p class="text-danger">No se encontró el archivo para descargar</p>`;
+  }
+</script>

@@ -1,14 +1,37 @@
-body{
-font-family: Arial;
-background:#f5f5f5;
-text-align:center;
+
+
+.bg-navy {
+    background-color: #001f3f;
 }
 
-form{
-margin-top:20px;
+.azul-marino{
+  color:#001f3f;
 }
 
-button{
-padding:10px;
-cursor:pointer;
+.hr-marino{
+  border:none;
+  height:3px;
+  background:#001f3f;
+  width:120px;
+}
+.bg-navy:hover {
+  background-color: #003366; /* azul un poco más claro */
+  color: white;
+}
+
+.drop-area{
+  border:2px dashed #001f3f;
+  border-radius:10px;
+  background:#f8f9fa;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.drop-area:hover{
+  background:#eef3f8;
+}
+
+.drop-area.dragover{
+  background:#dbe9f6;
+  border-color:#003366;
 }
